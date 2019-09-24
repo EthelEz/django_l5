@@ -1,0 +1,18 @@
+{% extends 'basic_app/base.html' %}
+{% block body_block %}
+
+<div class="jumbotron">
+  <h2>Please Login or Register Here!</h2>
+  <form action="{% url 'basic_app:user_login' %}" method="post">
+    <!-- NB: With forms, we need the csrf token -->
+    {% csrf_token %}
+    <label for="username">Username:</label>
+    <input type="text" name="username" placeholder="Enter Username">       <!--going to send data to views.user_login's username-->
+
+    <label for="password">Password:</label>
+    <input type="password" name="Password">
+    <input type="submit" name="" value="Login">
+  </form>
+</div>
+
+{% endblock %}
